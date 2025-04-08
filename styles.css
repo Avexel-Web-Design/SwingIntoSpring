@@ -1,46 +1,200 @@
 /* Custom styles for Swing Into Spring webpage */
 
-/* Add a musical note background pattern to certain sections */
+/* ===== JAZZ-INSPIRED TYPOGRAPHY ===== */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+ 
+h1, h2, h3 {
+  font-family: 'Abril Fatface', serif;
+  letter-spacing: 0.02em;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+.event-title {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* ===== ARTISTIC BACKGROUNDS & ELEMENTS ===== */
+/* Updated background pattern without musical notes */
 .bg-pattern {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMzIgMTJjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDRjMCAxLjg1IDEuMjggMy40MiAzIDMuODdWMzJsLTEyLTN2LTE0LjEzYzEuNzItLjQ1IDMtMi4wMiAzLTMuODdjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDRjMCAxLjg1IDEuMjggMy40MiAzIDMuODdWMzZsMTYgNHYtMjUuMTNjMS43Mi0uNDUgMy0yLjAyIDMtMy44N3oiIGZpbGw9InJnYmEoMzAsNTgsMTM4LDAuMDUpIi8+PC9zdmc+');
-  background-repeat: repeat;
+  background-color: #f8f4e9;
+  position: relative;
 }
 
-/* Add a subtle shadow to section headings */
-h2.section-heading {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+/* Paper texture overlay for vintage feel */
+.paper-texture {
+  position: relative;
 }
 
-/* Custom animation for the CTA button */
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+');
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Jazz-inspired decorative borders */
+.jazz-border {
+  position: relative;
+}
+
+.jazz-border::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D46A04, transparent);
+}
+
+/* ===== CREATIVE ANIMATIONS ===== */
+/* Improved button pulse animation */
 .btn-pulse {
-  animation: pulse 2s infinite;
+  animation: pulse 3s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 3s infinite 1s;
 }
 
 @keyframes pulse {
   0% {
     transform: scale(1);
+    box-shadow: 0 5px 15px rgba(140, 28, 19, 0.2);
   }
   50% {
     transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(140, 28, 19, 0.4);
   }
   100% {
     transform: scale(1);
+    box-shadow: 0 5px 15px rgba(140, 28, 19, 0.2);
   }
 }
 
-/* Custom font styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
-/* Hero section gradient background */
-header.bg-jazz-blue {
-  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+/* Staggered entrance animation for card elements */
+.stagger-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: staggerIn 0.6s ease forwards;
 }
 
-/* Footer gradient background */
-footer.bg-gray-800 {
-  background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+.stagger-in:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stagger-in:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes staggerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CREATIVE CARD & SECTION STYLING ===== */
+/* Enhanced event cards with artistic touches */
+.event-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border-radius: 0.5rem;
+  border-left-width: 4px;
+  overflow: hidden;
+}
+
+.event-card:hover {
+  transform: translateY(-5px) rotate(0.5deg);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--card-color, #8C1C13), transparent);
+  opacity: 0.7;
+}
+
+/* Custom section heading styling - removed musical note */
+h2.section-heading {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+/* Decorative line instead of musical note */
+h2.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #D46A04;
+}
+
+/* Hero section with hand-drawn wave background */
+.hero-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-wave::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDEyMCI+PHBhdGggZD0iTTAgMHYyNmMxOC42NDMgMTkuMzA0IDUzLjg5NyAxOS4zMDQgMTA1Ljc2MyAwIDc3Ljc5Ny0yOC45NTcgMTQyLjQ5NyAyOC45NTcgMTk0LjAzMyAwQzM0OS4yMjYtMjcuMTUyIDQxMy45MjYgMzAuNzYxIDQ2NS40NjIgMS44MDUgNTE3LTI3LjE1MiA2MTMuMjI2IDMwLjc2MSA2NjQuNzYxIDEuODA1IDcxNi4yOTctMjcuMTUyIDc4MC45OTggMzAuNzYxIDgzMi41MzMgMS44MDUgODg0LjA2OS0yNy4xNTIgOTQ4Ljc3IDMwLjc2MSAxMDAwLjMwNSAxLjgwNSAxMDUxLjg0MS0yNy4xNTIgMTE0My42MzggMzAuNzYxIDExOTUuMTczIDEuODA1VjBIMFoiIGZpbGw9IiNGNUU2Q0MiLz48L3N2Zz4=');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+/* Tilting effect for program cards */
+.tilt-effect {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* Smooth scrolling for the whole page */
@@ -48,17 +202,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Enhance hover effects on cards */
-.event-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Media queries for improved responsiveness */
+/* Responsive media queries */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem !important;
@@ -66,6 +210,10 @@ html {
   
   h2 {
     font-size: 1.8rem !important;
+  }
+  
+  .hero-wave::after {
+    height: 30px;
   }
 }
 
