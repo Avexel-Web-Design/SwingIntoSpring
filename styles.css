@@ -1,0 +1,89 @@
+/* Custom styles for Swing Into Spring webpage */
+
+/* Add a musical note background pattern to certain sections */
+.bg-pattern {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIj48cGF0aCBkPSJNMzIgMTJjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDRjMCAxLjg1IDEuMjggMy40MiAzIDMuODdWMzJsLTEyLTN2LTE0LjEzYzEuNzItLjQ1IDMtMi4wMiAzLTMuODdjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDRjMCAxLjg1IDEuMjggMy40MiAzIDMuODdWMzZsMTYgNHYtMjUuMTNjMS43Mi0uNDUgMy0yLjAyIDMtMy44N3oiIGZpbGw9InJnYmEoMzAsNTgsMTM4LDAuMDUpIi8+PC9zdmc+');
+  background-repeat: repeat;
+}
+
+/* Add a subtle shadow to section headings */
+h2.section-heading {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom animation for the CTA button */
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom font styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero section gradient background */
+header.bg-jazz-blue {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+}
+
+/* Footer gradient background */
+footer.bg-gray-800 {
+  background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhance hover effects on cards */
+.event-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Media queries for improved responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Print styles for ticket information */
+@media print {
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+  
+  section:not(.ticket-info),
+  footer,
+  header .bg-jazz-gold {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: black;
+  }
+}
