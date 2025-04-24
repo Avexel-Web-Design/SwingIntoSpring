@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Add a descriptive meta description -->
+    <meta name="description" content="Join the Harbor Springs High School Jazz Band for Swing Into Spring! An evening of live jazz music, dancing, and community fun. Get event details, dates, and ticket information.">
+    <!-- SEO: Add relevant keywords -->
+    <meta name="keywords" content="Harbor Springs High School, Jazz Band, Swing Into Spring, Live Music, Jazz Event, High School Band, Michigan, Community Event, Dance">
     <title>Swing Into Spring - Harbor Springs High School Jazz Event</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[Your Website URL]"> <!-- TODO: Replace with actual URL -->
+    <meta property="og:title" content="Swing Into Spring - Harbor Springs High School Jazz Event">
+    <meta property="og:description" content="Join the Harbor Springs High School Jazz Band for an evening of live jazz music, dancing, and community fun.">
+    <meta property="og:image" content="[URL to an image for sharing]"> <!-- TODO: Replace with URL to a preview image -->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="[Your Website URL]"> <!-- TODO: Replace with actual URL -->
+    <meta property="twitter:title" content="Swing Into Spring - Harbor Springs High School Jazz Event">
+    <meta property="twitter:description" content="Join the Harbor Springs High School Jazz Band for an evening of live jazz music, dancing, and community fun.">
+    <meta property="twitter:image" content="[URL to an image for sharing]"> <!-- TODO: Replace with URL to a preview image -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.png" type="image/png">
@@ -27,7 +44,6 @@
         function copyEmailToClipboard(email, event) {
             // Prevent the default mailto behavior for now
             event.preventDefault();
-            
             // Copy email to clipboard
             navigator.clipboard.writeText(email).then(() => {
                 // Show tooltip feedback
@@ -37,7 +53,6 @@
                 tooltip.style.left = event.clientX + 'px';
                 tooltip.textContent = 'Email copied to clipboard!';
                 document.body.appendChild(tooltip);
-                
                 // Remove tooltip after 2 seconds
                 setTimeout(() => {
                     tooltip.style.opacity = '0';
